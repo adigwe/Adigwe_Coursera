@@ -23,7 +23,7 @@
 
 
 #include <stdio.h>
-#include "stats.h"
+#include "stats_.h"
 
 /* Size of the Data Set */
 #define SIZE (40)
@@ -47,7 +47,7 @@ void main() {
   
   printf("\nMean = %f\n",find_mean(SIZE, test));
 
-  
+  printf("Median = %f\n",find_median(SIZE, test));
 
 }
 
@@ -134,4 +134,32 @@ void main() {
     return((float)sum/m);
   }
 
+  float find_median(int q, unsigned char number[]) {
+    int i, a, j;
+
+  for (i = 0; i < q; ++i)
+    {
+        for (j = i + 1; j < q; ++j)
+        {
+            if (number[i] > number[j])
+            {
+                a = number[i];
+                number[i] = number[j];
+                number[j] = a;
+            }
+        }
+    }
+  
+
+  if(q%2==0) {
+        /* if there is an even number of elements, return mean of the two elements in the middle*/
+        return((number[q/2] + number[q/2 - 1]) / 2.0);
+    } else {
+        /* else return the element in the middle */
+        return number[q/2];
+    }
+
+
+  }
+  
 

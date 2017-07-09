@@ -53,4 +53,6 @@
 
   float find_mean(int, unsigned char[]);
 
+  float find_median(int, unsigned char[]);
+
 #endif /* __STATS_H__ */
